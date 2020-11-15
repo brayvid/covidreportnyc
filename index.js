@@ -18,8 +18,8 @@ function getDataCSV(){
                     }
                     return day;
                 });
-                var latest = [days.slice(-2)[0]["CASE_COUNT_7DAY_AVG"] , days.slice(-2)[0]["HOSP_COUNT_7DAY_AVG"] , days.slice(-2)[0]["DEATH_COUNT_7DAY_AVG"]];
-                var date_range = days.slice(-8)[0]["date_of_interest"] + "  -  " + days.slice(-2)[0]["date_of_interest"]
+                var latest = [days.slice(-3)[0]["CASE_COUNT_7DAY_AVG"] , days.slice(-3)[0]["HOSP_COUNT_7DAY_AVG"] , days.slice(-2)[0]["DEATH_COUNT_7DAY_AVG"]];
+                var date_range = days.slice(-9)[0]["date_of_interest"] + "  -  " + days.slice(-3)[0]["date_of_interest"]
                 document.getElementById("range").innerHTML = date_range;
                 document.getElementById("cases").innerHTML = latest[0].toString();
                 document.getElementById("hosp").innerHTML = latest[1].toString();
@@ -39,7 +39,7 @@ function getDataCSV(){
 
 function scatterPlot(){
     let xyArr = [];
-    let last30Days = days.slice(-30);
+    let last30Days = days.slice(-32);
     
     for(let i = 0; i < 30;i++){
         xyArr.push({
