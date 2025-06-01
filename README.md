@@ -1,6 +1,6 @@
 # Covid Report NYC Dashboard
 
-https://covidreportnyc.netlify.app/
+https://covidnyc.blakerayvid.com
 
 This website fetches recent Covid-19 data from [NYC Health Department](https://github.com/nychealth/coronavirus-data), displays key statistics for the last few days (cases, hospitalizations, deaths), and plots a scatter chart to visualize the trend of cases over the last 30 days. All functionality is on the client-side.
 
