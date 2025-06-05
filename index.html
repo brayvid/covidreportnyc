@@ -5,11 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Covid Report NYC</title>
     <style>
+
+        body {
+            display: flex;             /* MUST HAVE */
+            flex-direction: column;    /* MUST HAVE */
+            min-height: 100vh;         /* MUST HAVE: Body must also be able to fill viewport height */
+            margin: 0;                 /* Ensure no body margin */
+
+            /* Desktop padding-top based on .navbar padding (10*2) + .navbar a padding (14*2) + font (~18) = ~66-68px */
+            padding-top: 68px;
+            padding-bottom: 20px;      /* ADDED: This creates the 20px space below where the footer will sit */
+            }
+
+
         html, body {
             margin: 0px;
             padding: 0px;
             background-color: rgb(164, 211, 164);
         }
+
+        html { /* CHANGED/ADDED */
+            box-sizing: border-box;
+            min-height: 100vh; /* Ensures HTML element can fill viewport height */
+            margin: 0; /* Reset default browser margin */
+            padding: 0; /* Reset default browser padding */
+            }
 
         #area {
             width: 20em;
@@ -33,7 +53,7 @@
             text-align: center;
         }
 
-        #range, #footer, #notice {
+        #range, footer, #notice {
             font-size: large;
             font-weight: 500;
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -46,7 +66,7 @@
             padding: 5px;
         }
 
-        #footer {
+        footer {
             color: #000000;
         }
 
@@ -54,6 +74,27 @@
             color: black;
         }
 
+        footer {
+            /* REMOVE position:absolute; and bottom: styles if they were present */
+            margin-top: auto;         /* KEY: Pushes footer to the bottom of available space in body */
+            flex-shrink: 0;           /* ADDED: Prevents footer from shrinking */
+            padding: 10px 20px;
+            text-align: center;
+            width: 100%;
+            /* box-sizing: border-box; /* Already inherited */
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+            padding: 2em 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 4px;
+            /* Remove padding from here */
+        }
 
     </style>
     <!-- JQuery JS 3.5.1 -->
@@ -110,11 +151,13 @@
         <div id="canv">
             <canvas id="myChart" width="400" height="300"></canvas>
         </div>
-
-        <p id="footer">
-            <a href="https://github.com/nychealth/coronavirus-data/blob/master/latest/now-data-by-day.csv">Source: NYC Health</a>
-        </p>
     </div>
+
+      <footer>
+    <div class="container">
+      <p><a href="https://github.com/nychealth/coronavirus-data/blob/master/latest/now-data-by-day.csv">NYC Health</a> | <a href="https://github.com/brayvid/covidreportnyc">GitHub</a> | <a href="https://blakerayvid.com">Portfolio</a></p>
+    </div>
+  </footer>
     <script src="index.js"></script>
     <script>
         $(document).ready(function () {
